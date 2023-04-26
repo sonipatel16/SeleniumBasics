@@ -42,13 +42,14 @@ public class TryingJunit1 {
     public void openYoutube()throws InterruptedException{
         driver.get("https://www.youtube.com/");
         driver.findElements(By.tagName("'inline-player'"));
+       // driver.findElement(By.className("3bsHYHMj4xyKyfPHP1NfPMYGF4SG2M5DX3VN9eEPRWdd")).click();
         Thread.sleep(3000);
-       // driver.findElement(By.linkText("'search-input'")).sendKeys("tu chale mari sath");
+       driver.findElement(By.linkText("'search-input'")).sendKeys("tu chale mari sath");
     }
 
     @After
     public void tearDown(){
-        driver.close();
+       // driver.close();
 
     }
 
