@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import static org.junit.Assert.assertEquals;
 
-public class SelectClassTest {
+public class SelectClassAndMultipleSelect {
     public WebDriver driver;
     public String url = "https://www.letskodeit.com/practice";
     String expectedText = "Honda";
@@ -37,6 +37,17 @@ public class SelectClassTest {
                 String actual = select.getFirstSelectedOption().getText();
                 assertEquals("not select",expectedText,actual);
                 Thread.sleep(3000);
+    }
+    @Test
+    public void multipleSelectTest()throws InterruptedException{
+        WebElement multipleSelect = driver.findElement(By.id("multiple-select-example"));
+        Select select = new Select(multipleSelect);
+        select.selectByVisibleText("Orange");
+        Thread.sleep(3000);
+        select.selectByIndex(2);
+        Thread.sleep(3000);
+        select.selectByValue("apple");
+        Thread.sleep(3000);
     }
     @After
     public void tearDown(){

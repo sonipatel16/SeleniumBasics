@@ -29,8 +29,12 @@ public class TryingJunit1 {
 
     }
     @Test
-    public void openSportsDirectUrl(){
+    public void openSportsDirectUrl()throws InterruptedException{
         driver.get("https://www.sportsdirect.com");
+        Thread.sleep(3000);
+        driver.findElement(By.id("onetrust-accept-btn-handler")).click();
+        driver.findElement(By.className("slideName")).click();
+        Thread.sleep(3000);
 
     }
     @Test
@@ -41,13 +45,22 @@ public class TryingJunit1 {
     @Test
     public void openYoutube()throws InterruptedException{
         driver.get("https://www.youtube.com/");
-        driver.findElements(By.tagName("'inline-player'"));
-       // driver.findElement(By.className("3bsHYHMj4xyKyfPHP1NfPMYGF4SG2M5DX3VN9eEPRWdd")).click();
+        driver.findElement(By.xpath("//div[@class='yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--touch-response-inverse']")).click();
         Thread.sleep(3000);
-       driver.findElement(By.linkText("'search-input'")).sendKeys("tu chale mari sath");
+        driver.findElement(By.xpath("//input[@id='search']")).click();
+        driver.findElement(By.xpath("//input[@id='search']")).sendKeys("bolya shri hari re");
+       // driver.findElement(By.xpath("//form[@id='search-form']")).click();
+        driver.findElement(By.xpath("//button[@id='search-icon-legacy']")).click();
+        Thread.sleep(3000);
+       // driver.findElement(By.xpath("//form[@id='search-form']")).sendKeys("kids cartoon");
+        Thread.sleep(3000);
+
+
+
+
     }
 
-    @After
+
     public void tearDown(){
        // driver.close();
 
